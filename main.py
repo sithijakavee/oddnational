@@ -31,7 +31,7 @@ app.add_middleware(
 
 @app.get("/")
 async def root():
-    return {"message": "ODDNATIONAL API"}
+    return {"message": "ODDNATIONAL"}
 
 
 @app.post("/register")
