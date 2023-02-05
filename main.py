@@ -40,7 +40,14 @@ async def root():
         database="u124366181_odd_national"
     )
 
-    return database
+    cursor = database.cursor()
+    sql = "SELECT * FROM users"
+    cursor.execute(sql)
+
+    results = cursor.fetchall()
+
+    return results
+
 
 
 @app.post("/register")
