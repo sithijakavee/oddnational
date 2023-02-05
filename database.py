@@ -16,7 +16,7 @@ import mysql.connector
 
 db = mysql.connector.connect(
   host="sql866.main-hosting.eu",
-  user="u124366181_root",
-  password="$Theo3474",
-  database="u124366181_odd_national"
+  user="u124366181_emobettingvps",
+  password="HZ96XCp7Lt3ZWe8%",
+  database="u124366181_emobettingvps"
 )

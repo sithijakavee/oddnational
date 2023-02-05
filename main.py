@@ -34,9 +34,9 @@ async def root():
 
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
 
     cursor = db.cursor()
@@ -48,14 +48,13 @@ async def root():
     return result
 
 
-
 @app.post("/register")
 async def register(register: models.Register):
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     cursor = db.cursor()
 
@@ -78,9 +77,9 @@ async def register(register: models.Register):
 async def login(login: models.Login):
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     cursor = db.cursor()
 
@@ -110,9 +109,9 @@ async def login(login: models.Login):
 async def post_blogs(blog: models.Blog):
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
 
     cursor = db.cursor()
@@ -135,9 +134,9 @@ async def post_blogs(blog: models.Blog):
 async def get_blogs():
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     cursor = db.cursor()
     sql = "SELECT * FROM blogs"
@@ -162,9 +161,9 @@ async def get_blogs():
 async def delete_blog(blogid: str):
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     cursor = db.cursor()
     sql = "DELETE FROM blogs WHERE blogid = %s"
@@ -181,9 +180,9 @@ async def delete_blog(blogid: str):
 async def getnoofcomments(blogid: str):
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     cursor = db.cursor()
     sql = "SELECT COUNT(*) FROM comments WHERE blogid=%s"
@@ -201,9 +200,9 @@ async def getnoofcomments(blogid: str):
 async def get_arbitrage_prematch():
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     cursor = db.cursor()
     sql = "SELECT * FROM emo"
@@ -251,9 +250,9 @@ async def get_arbitrage_prematch():
 async def single_game_data(game_id: str):
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     cursor = db.cursor()
     sql = "SELECT * FROM emo WHERE game_id=%s"
@@ -297,9 +296,9 @@ async def single_game_data(game_id: str):
 async def sportsbooks():
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     cursor = db.cursor()
     sql = "SELECT DISTINCT bookie_1, bookie_2 FROM emo"
@@ -323,9 +322,9 @@ async def sportsbooks():
 async def get_by_sportsbooks(sportsbooks: str):
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     cursor = db.cursor()
     data = []
@@ -374,9 +373,9 @@ async def get_by_sportsbooks(sportsbooks: str):
 async def post_question(question: models.Question):
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     cursor = db.cursor()
 
@@ -398,9 +397,9 @@ async def post_question(question: models.Question):
 async def get_questions():
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     cursor = db.cursor()
     sql = "SELECT * FROM questions"
@@ -439,9 +438,9 @@ async def get_questions():
 async def post_answer(qID: str, answer: models.Answer):
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     cursor = db.cursor()
 
@@ -463,9 +462,9 @@ async def post_answer(qID: str, answer: models.Answer):
 async def verification():
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     email_sender = 'sithijakavee110@gmail.com'
     email_password = 'yaqfjenpkzpqnuta'
@@ -494,9 +493,9 @@ async def verification():
 async def check_email(register: models.Register):
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     cursor = db.cursor()
 
@@ -544,9 +543,9 @@ async def check_email(register: models.Register):
 async def delete():
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     cursor = db.cursor()
 
@@ -558,9 +557,9 @@ async def delete():
 async def forget_password(forgetPassword: models.ForgetPassword):
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     digits = "0123456789"
     OTP = ""
@@ -597,9 +596,9 @@ async def forget_password(forgetPassword: models.ForgetPassword):
 async def set_newPassword(newPassword: models.NewPassword):
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     cursor = db.cursor()
 
@@ -617,9 +616,9 @@ async def set_newPassword(newPassword: models.NewPassword):
 async def post_comment(comment: models.Comment):
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     cursor = db.cursor()
     commentid = uuid.uuid1()
@@ -638,9 +637,9 @@ async def post_comment(comment: models.Comment):
 async def get_comments(blogid: str):
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     cursor = db.cursor()
     sql = "SELECT * FROM comments WHERE blogid = %s"
@@ -668,9 +667,9 @@ async def get_comments(blogid: str):
 async def delete_comment(commentid: str):
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     cursor = db.cursor()
     sql = "DELETE FROM comments WHERE commentid=%s"
@@ -684,9 +683,9 @@ async def delete_comment(commentid: str):
 async def delete_comment(commentid: str, editcomment: models.EditComment):
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     cursor = db.cursor()
     sql = "UPDATE comments SET comment=%s WHERE commentid=%s"
@@ -700,9 +699,9 @@ async def delete_comment(commentid: str, editcomment: models.EditComment):
 async def subscribed(subscribed: models.Subscribed):
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     cursor = db.cursor()
     sql = "UPDATE users SET subscribed=%s WHERE userid=%s"
@@ -716,9 +715,9 @@ async def subscribed(subscribed: models.Subscribed):
 async def check_subscribed(subscribed: models.Subscribed):
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
-        user="u124366181_root",
-        password="$Theo3474",
-        database="u124366181_odd_national"
+        user="u124366181_emobettingvps",
+        password="HZ96XCp7Lt3ZWe8%",
+        database="u124366181_emobettingvps"
     )
     cursor = db.cursor()
     sql = "SELECT subscribed FROM users WHERE userid=%s"
