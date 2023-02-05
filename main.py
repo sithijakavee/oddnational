@@ -6,7 +6,6 @@ import requests
 import base64
 from PIL import Image
 import io
-from database import db
 from functions import getUserById
 import models
 import uuid
@@ -33,14 +32,14 @@ app.add_middleware(
 @app.get("/")
 async def root():
 
-    database = mysql.connector.connect(
+    db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
         user="u124366181_root",
         password="$Theo3474",
         database="u124366181_odd_national"
     )
 
-    cursor = database.cursor()
+    cursor = db.cursor()
     sql = "SELECT * FROM blogs"
     cursor.execute(sql)
 
@@ -52,7 +51,12 @@ async def root():
 
 @app.post("/register")
 async def register(register: models.Register):
-
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     cursor = db.cursor()
 
     userid = uuid.uuid1()
@@ -72,6 +76,12 @@ async def register(register: models.Register):
 
 @app.post("/login")
 async def login(login: models.Login):
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     cursor = db.cursor()
 
     sql = "SELECT userid, password, username, status FROM users WHERE email = %s"
@@ -98,6 +108,12 @@ async def login(login: models.Login):
 
 @app.post("/post_blog")
 async def post_blogs(blog: models.Blog):
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
 
     cursor = db.cursor()
 
@@ -117,6 +133,12 @@ async def post_blogs(blog: models.Blog):
 
 @app.get("/get_blogs")
 async def get_blogs():
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     cursor = db.cursor()
     sql = "SELECT * FROM blogs"
     cursor.execute(sql)
@@ -138,6 +160,12 @@ async def get_blogs():
 
 @app.delete("/delete_blog")
 async def delete_blog(blogid: str):
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     cursor = db.cursor()
     sql = "DELETE FROM blogs WHERE blogid = %s"
     val = (blogid,)
@@ -151,6 +179,12 @@ async def delete_blog(blogid: str):
 
 @app.get("/getnoofcomments")
 async def getnoofcomments(blogid: str):
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     cursor = db.cursor()
     sql = "SELECT COUNT(*) FROM comments WHERE blogid=%s"
     val = (blogid,)
@@ -165,6 +199,12 @@ async def getnoofcomments(blogid: str):
 
 @app.get("/arbitrage-prematch")
 async def get_arbitrage_prematch():
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     cursor = db.cursor()
     sql = "SELECT * FROM emo"
 
@@ -209,6 +249,12 @@ async def get_arbitrage_prematch():
 
 @app.get("/single_game_data")
 async def single_game_data(game_id: str):
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     cursor = db.cursor()
     sql = "SELECT * FROM emo WHERE game_id=%s"
     val = (game_id,)
@@ -249,6 +295,12 @@ async def single_game_data(game_id: str):
 
 @app.get("/sportsbooks")
 async def sportsbooks():
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     cursor = db.cursor()
     sql = "SELECT DISTINCT bookie_1, bookie_2 FROM emo"
 
@@ -269,6 +321,12 @@ async def sportsbooks():
 
 @app.get("/get_by_sportsbooks")
 async def get_by_sportsbooks(sportsbooks: str):
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     cursor = db.cursor()
     data = []
     books = sportsbooks.split(",")
@@ -314,6 +372,12 @@ async def get_by_sportsbooks(sportsbooks: str):
 
 @app.post("/post_question")
 async def post_question(question: models.Question):
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     cursor = db.cursor()
 
     questionid = uuid.uuid1()
@@ -332,6 +396,12 @@ async def post_question(question: models.Question):
 
 @app.get("/get_questions")
 async def get_questions():
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     cursor = db.cursor()
     sql = "SELECT * FROM questions"
 
@@ -367,6 +437,12 @@ async def get_questions():
 
 @app.post("/post_answer")
 async def post_answer(qID: str, answer: models.Answer):
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     cursor = db.cursor()
 
     answerid = uuid.uuid1()
@@ -385,6 +461,12 @@ async def post_answer(qID: str, answer: models.Answer):
 
 @app.get("/verification")
 async def verification():
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     email_sender = 'sithijakavee110@gmail.com'
     email_password = 'yaqfjenpkzpqnuta'
 
@@ -410,6 +492,12 @@ async def verification():
 
 @app.post("/check_email")
 async def check_email(register: models.Register):
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     cursor = db.cursor()
 
     sql = "SELECT * FROM users WHERE email = %s"
@@ -454,6 +542,12 @@ async def check_email(register: models.Register):
 
 @app.get("/delete")
 async def delete():
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     cursor = db.cursor()
 
     sql = "DELETE FROM users WHERE id = 3"
@@ -462,6 +556,12 @@ async def delete():
 
 @app.post("/forget_password")
 async def forget_password(forgetPassword: models.ForgetPassword):
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     digits = "0123456789"
     OTP = ""
     for i in range(6):
@@ -495,6 +595,12 @@ async def forget_password(forgetPassword: models.ForgetPassword):
 
 @app.post("/set_newPassword")
 async def set_newPassword(newPassword: models.NewPassword):
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     cursor = db.cursor()
 
     sql = "UPDATE users SET password=%s WHERE email=%s"
@@ -509,6 +615,12 @@ async def set_newPassword(newPassword: models.NewPassword):
 
 @app.post("/post_comment")
 async def post_comment(comment: models.Comment):
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     cursor = db.cursor()
     commentid = uuid.uuid1()
     commentid = str(commentid)
@@ -524,6 +636,12 @@ async def post_comment(comment: models.Comment):
 
 @app.get("/get_comments")
 async def get_comments(blogid: str):
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     cursor = db.cursor()
     sql = "SELECT * FROM comments WHERE blogid = %s"
     val = (blogid,)
@@ -548,6 +666,12 @@ async def get_comments(blogid: str):
 
 @app.delete("/delete_comment")
 async def delete_comment(commentid: str):
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     cursor = db.cursor()
     sql = "DELETE FROM comments WHERE commentid=%s"
     val = (commentid,)
@@ -558,6 +682,12 @@ async def delete_comment(commentid: str):
 
 @app.put("/edit_comment")
 async def delete_comment(commentid: str, editcomment: models.EditComment):
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     cursor = db.cursor()
     sql = "UPDATE comments SET comment=%s WHERE commentid=%s"
     val = (editcomment.newComment, commentid)
@@ -568,6 +698,12 @@ async def delete_comment(commentid: str, editcomment: models.EditComment):
 
 @app.post("/subscribed")
 async def subscribed(subscribed: models.Subscribed):
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     cursor = db.cursor()
     sql = "UPDATE users SET subscribed=%s WHERE userid=%s"
     val = (1, subscribed.userid)
@@ -578,6 +714,12 @@ async def subscribed(subscribed: models.Subscribed):
 
 @app.post("/check_subscribed")
 async def check_subscribed(subscribed: models.Subscribed):
+    db = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
     cursor = db.cursor()
     sql = "SELECT subscribed FROM users WHERE userid=%s"
     val = (subscribed.userid,)
