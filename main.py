@@ -41,7 +41,7 @@ async def root():
     )
 
     cursor = database.cursor()
-    sql = "SELECT * FROM users"
+    sql = "SELECT * FROM blogs"
     cursor.execute(sql)
 
     results = cursor.fetchall()
