@@ -1,5 +1,6 @@
 
 from fastapi import FastAPI, File
+import mysql.connector
 from fastapi.middleware.cors import CORSMiddleware
 import requests
 import base64
@@ -31,7 +32,15 @@ app.add_middleware(
 
 @app.get("/")
 async def root():
-    return {"message": "ODDNATIONAL"}
+
+    database = mysql.connector.connect(
+        host="sql866.main-hosting.eu",
+        user="u124366181_root",
+        password="$Theo3474",
+        database="u124366181_odd_national"
+    )
+
+    return database
 
 
 @app.post("/register")
@@ -585,7 +594,8 @@ async def upload_image(file: bytes = File(...)):
     image = Image.open(io.BytesIO(file))
     image.save(f"""./images/{fileName}""")
     api_key = "00002c271048ee18441615750618d44b"
-    query = {'key': api_key, 'media': "https://cdn.eso.org/images/thumb300y/eso1907a.jpg"}
+    query = {'key': api_key,
+             'media': "https://cdn.eso.org/images/thumb300y/eso1907a.jpg"}
     url = f"""https://thumbsnap.com/api/upload"""
     r = requests.post(url=url, params=query)
     print(r)
