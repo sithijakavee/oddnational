@@ -497,8 +497,8 @@ async def verification():
         password="HZ96XCp7Lt3ZWe8%",
         database="u124366181_emobettingvps"
     )
-    email_sender = 'sithijakavee110@gmail.com'
-    email_password = 'yaqfjenpkzpqnuta'
+    email_sender = 'Oddnational63@gmail.com'
+    email_password = 'ecxmtebxlewukxkj'
 
     email_receiver = 'sithijakavee420@gmail.com'
 
@@ -544,8 +544,8 @@ async def check_email(register: models.Register):
         for i in range(6):
             OTP += digits[math.floor(random.random()*10)]
 
-        email_sender = 'sithijakavee110@gmail.com'
-        email_password = 'yaqfjenpkzpqnuta'
+        email_sender = 'Oddnational63@gmail.com'
+        email_password = 'ecxmtebxlewukxkj'
 
         email_receiver = register.email
 
@@ -597,8 +597,8 @@ async def forget_password(forgetPassword: models.ForgetPassword):
     for i in range(6):
         OTP += digits[math.floor(random.random()*10)]
 
-    email_sender = 'sithijakavee110@gmail.com'
-    email_password = 'yaqfjenpkzpqnuta'
+    email_sender = 'Oddnational63@gmail.com'
+    email_password = 'ecxmtebxlewukxkj'
 
     email_receiver = forgetPassword.email
 
