@@ -319,7 +319,7 @@ async def sportsbooks():
 
 
 @app.get("/get_by_sportsbooks")
-async def get_by_sportsbooks(sportsbooks: str):
+async def get_by_sportsbooks(sportsbooks: str, min: float, max: float):
     db = mysql.connector.connect(
         host="sql866.main-hosting.eu",
         user="u124366181_emobettingvps",
@@ -340,32 +340,63 @@ async def get_by_sportsbooks(sportsbooks: str):
 
         for result in results:
             if result[1] not in ids:
-                data.append(
-                    {
-                        "game_id": result[1],
-                        "rate": result[2],
-                        "time": result[3],
-                        "sport": result[4],
-                        "time_r": result[5],
-                        "date": result[6],
-                        "bookie_1": result[7],
-                        "bookie_2": result[8],
-                        "odd_1": result[9],
-                        "odd_2": result[10],
-                        "league_1": result[11],
-                        "league_2": result[12],
-                        "teams_1": result[13],
-                        "teams_2": result[14],
-                        "outcome_1": result[15],
-                        "outcome_2": result[16],
-                        "selection": result[17],
-                        "link_1": result[18],
-                        "link_2": result[19]
-                    }
-                )
+                rate = result[2]
+                rate = float(rate.replace("%", ""))
 
-                ids.append(result[1])
+                if min != 0 or max != 0:
+                    if rate >= min and rate <= max:
+                        data.append(
+                            {
+                                "game_id": result[1],
+                                "rate": result[2],
+                                "time": result[3],
+                                "sport": result[4],
+                                "time_r": result[5],
+                                "date": result[6],
+                                "bookie_1": result[7],
+                                "bookie_2": result[8],
+                                "odd_1": result[9],
+                                "odd_2": result[10],
+                                "league_1": result[11],
+                                "league_2": result[12],
+                                "teams_1": result[13],
+                                "teams_2": result[14],
+                                "outcome_1": result[15],
+                                "outcome_2": result[16],
+                                "selection": result[17],
+                                "link_1": result[18],
+                                "link_2": result[19]
+                            }
+                        )
 
+                        ids.append(result[1])
+                else:
+
+                    data.append(
+                        {
+                            "game_id": result[1],
+                            "rate": result[2],
+                            "time": result[3],
+                            "sport": result[4],
+                            "time_r": result[5],
+                            "date": result[6],
+                            "bookie_1": result[7],
+                            "bookie_2": result[8],
+                            "odd_1": result[9],
+                            "odd_2": result[10],
+                            "league_1": result[11],
+                            "league_2": result[12],
+                            "teams_1": result[13],
+                            "teams_2": result[14],
+                            "outcome_1": result[15],
+                            "outcome_2": result[16],
+                            "selection": result[17],
+                            "link_1": result[18],
+                            "link_2": result[19]
+                        }
+                    )
+
+                    ids.append(result[1])
     return data
 
 
