@@ -32,20 +32,7 @@ app.add_middleware(
 @app.get("/")
 async def root():
 
-    db = mysql.connector.connect(
-        host="sql866.main-hosting.eu",
-        user="u124366181_emobettingvps",
-        password="HZ96XCp7Lt3ZWe8%",
-        database="u124366181_emobettingvps"
-    )
-
-    cursor = db.cursor()
-    sql = "SELECT * FROM blogs"
-    cursor.execute(sql)
-
-    result = cursor.fetchall()
-
-    return result
+    return "ODDNATIONAL API"
 
 
 @app.post("/register")
