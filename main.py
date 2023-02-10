@@ -9,6 +9,7 @@ import io
 from functions import getUserById
 import models
 import uuid
+from operator import itemgetter
 
 from email.message import EmailMessage
 import ssl
@@ -230,7 +231,8 @@ async def get_arbitrage_prematch():
             }
         )
     print(ids)
-    return data
+    sorted_data = sorted(data, key=itemgetter('rate'), reverse=True)
+    return sorted_data
 
 
 @app.get("/single_game_data")
@@ -328,7 +330,8 @@ async def get_by_sportsbooks(sportsbooks: str, min: float, max: float):
         for result in results:
             if result[1] not in ids:
                 rate = result[2]
-                rate = float(rate.replace("%", ""))
+                # rate = rate.replace("%", "")
+                rate = float(rate)
 
                 if min != 0 or max != 0:
                     if rate >= min and rate <= max:
@@ -384,7 +387,9 @@ async def get_by_sportsbooks(sportsbooks: str, min: float, max: float):
                     )
 
                     ids.append(result[1])
-    return data
+        
+    sorted_data = sorted(data, key=itemgetter('rate'), reverse=True)
+    return sorted_data
 
 
 @app.post("/post_question")
